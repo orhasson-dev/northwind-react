@@ -1,9 +1,10 @@
 import "./Home.css";
+import Discount from "../Discount/Discount";
 
 function Home(): JSX.Element {
     return (
         <div className="Home">
-			<h2>Home Page</h2>
+			<Discount/>
         </div>
     );
 }
