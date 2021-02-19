@@ -13,6 +13,10 @@ function Specials(): JSX.Element {
 
                 { isWeekend() && <span>Cholent</span> }
 
+                <span> | </span>
+
+                { isWeekend() || <span>Fish & Chips</span> }
+
             </p>
         </div>
     );
