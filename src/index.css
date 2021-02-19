@@ -12,3 +12,13 @@ html,body, #root {
 a {
   color: blue;
 }
+
+.Box{
+  display: inline-block;
+  text-align: left;
+  border: 1px solid black;
+  padding: 0 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+}
