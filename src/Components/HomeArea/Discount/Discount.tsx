@@ -5,7 +5,7 @@ function Discount(): JSX.Element {
     const percent = 10;
 
     return (
-        <div className="Discount">
+        <div className="Discount Box">
             {/*Interpolation*/}
 			<p> Only now, {percent}% discount on all products!</p>
         </div>
