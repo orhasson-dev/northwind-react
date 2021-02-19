@@ -1,0 +1,8 @@
+.Menu >nav {
+	display: flex;
+    flex-direction: column;
+}
+
+.Menu > nav > a {
+    margin-top: 20px;
+}

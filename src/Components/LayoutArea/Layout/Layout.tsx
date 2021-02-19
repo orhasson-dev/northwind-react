@@ -1,14 +1,15 @@
 import './Layout.css';
-import React from 'react';
 import Header from '../Header/Header';
+import Footer from "../Footer/Footer";
+import Menu from "../Menu/Menu";
 
 function Layout() : JSX.Element { // JSX.Element = UI object
     return (
         <div className="Layout">
             <header><Header/></header>
-            <aside>B</aside>
+            <aside><Menu/></aside>
             <main>C</main>
-            <footer>D</footer>
+            <footer><Footer/></footer>
         </div>
     );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-import './Sales.css';
+import './Footer.css';
 
-function Sales() : JSX.Element { // JSX.Element = UI object {
+function Footer() : JSX.Element { // JSX.Element = UI object {
     return (
         <div className="Footer">
-
+            <p> All Rights Reserved &copy;</p>
         </div>
     );
 }
 
-export default Sales;
+export default Footer;
