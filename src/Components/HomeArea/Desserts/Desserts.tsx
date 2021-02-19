@@ -11,7 +11,7 @@ function Desserts(): JSX.Element {
         <div className="Desserts Box">
 			<p>
                 Our Desserts:
-                {items.map(item =><span> {item.name} | </span>)}
+                {items.map(item =><span key={item.id}> {item.name} | </span>)}
             </p>
         </div>
     );
