@@ -7,6 +7,7 @@ import Slogan from "../Slogan/Slogan";
 import Recommended from "../Recommended/Recommended";
 import Location from "../Location/Location";
 import Bestseller from "../Bestseller/Bestseller";
+import RandomProduct from "../RandomProduct/RandomProduct";
 
 function Home(): JSX.Element {
     return (
@@ -30,6 +31,7 @@ function Home(): JSX.Element {
 
            <Location/>
            <Bestseller/>
+            <RandomProduct/>
         </div>
     );
 }
