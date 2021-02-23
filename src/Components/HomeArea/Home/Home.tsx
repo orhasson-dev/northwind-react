@@ -5,6 +5,7 @@ import Desserts from "../Desserts/Desserts";
 import Sales from "../Sales/Sales";
 import Slogan from "../Slogan/Slogan";
 import Recommended from "../Recommended/Recommended";
+import Location from "../Location/Location";
 
 function Home(): JSX.Element {
     return (
@@ -25,6 +26,8 @@ function Home(): JSX.Element {
 
             {/* Events: */}
            <Recommended/>
+
+           <Location/>
         </div>
     );
 }
