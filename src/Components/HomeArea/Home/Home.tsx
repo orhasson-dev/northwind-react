@@ -2,6 +2,7 @@ import "./Home.css";
 import Discount from "../Discount/Discount";
 import Specials from "../Specials/Specials";
 import Desserts from "../Desserts/Desserts";
+import Sales from "../Sales/Sales";
 
 function Home(): JSX.Element {
     return (
@@ -15,6 +16,10 @@ function Home(): JSX.Element {
 
             {/*Displaying Lists*/}
             <Desserts/>
+
+            {/* Props: */}
+            <Sales percent={10} category="Beverages"/>
+            <Sales percent={15} category="Foods"/>
         </div>
     );
 }
