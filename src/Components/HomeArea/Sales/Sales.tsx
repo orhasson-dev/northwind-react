@@ -11,6 +11,12 @@ interface SalesProps{
 //Class Component Props Use:
 class Sales extends Component<SalesProps>{
 
+    //If we have ctor, we must get the props to our ctor and pass them
+    //to our super class:
+    public constructor(props: SalesProps) {
+        super(props);
+    }
+
     public render(): JSX.Element{
 
         return (
