@@ -1,4 +1,6 @@
 import "./Sales.css";
+import {Component} from "react";
+import logoImage from "../../../Assets/Images/logo.jpg";
 
 // Creating props exact type
 interface SalesProps{
@@ -6,12 +8,29 @@ interface SalesProps{
     category?: string;
 }
 
-function Sales(props: SalesProps): JSX.Element {
-    return (
-        <div className="Sales Box">
-			<p>Sales: {props.percent}% off on all {props.category || "Products"}!</p>
-        </div>
-    );
+//Class Component Props Use:
+class Sales extends Component<SalesProps>{
+
+    public render(): JSX.Element{
+
+        return (
+            <div className="Sales Box">
+           	<p>Sales: {this.props.percent}% off on all {this.props.category || "Products"}!</p>
+            </div>
+        );
+
+    }
 }
+
+
+//Functional Components Props Use:
+// function Sales(props: SalesProps): JSX.Element {
+//     return (
+//         <div className="Sales Box">
+// 			<p>Sales: {props.percent}% off on all {props.category || "Products"}!</p>
+//         </div>
+//     );
+// }
+
 
 export default Sales;
