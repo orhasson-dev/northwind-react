@@ -19,7 +19,7 @@ function Home(): JSX.Element {
 
             {/* Props: */}
             <Sales percent={10} category="Beverages"/>
-            <Sales percent={15} category="Foods"/>
+            <Sales percent={15}/>
         </div>
     );
 }
