@@ -14,7 +14,7 @@ class Location extends Component {
                     <option defaultValue="Select Location">Select Location</option>
                 <option value="North">North</option>
                 <option value="Center">Center</option>
-                <option value="Tel-Aviv">Tel-Aviv</option>
+                    <option value="East">East</option>
                 <option value="South">South</option>
             </select>
             </div>
