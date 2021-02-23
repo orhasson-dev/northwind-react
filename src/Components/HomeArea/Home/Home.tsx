@@ -3,6 +3,8 @@ import Discount from "../Discount/Discount";
 import Specials from "../Specials/Specials";
 import Desserts from "../Desserts/Desserts";
 import Sales from "../Sales/Sales";
+import Slogan from "../Slogan/Slogan";
+import Recommended from "../Recommended/Recommended";
 
 function Home(): JSX.Element {
     return (
@@ -20,6 +22,9 @@ function Home(): JSX.Element {
             {/* Props: */}
             <Sales percent={10} category="Beverages"/>
             <Sales percent={15}/>
+
+            {/* Events: */}
+           <Recommended/>
         </div>
     );
 }
