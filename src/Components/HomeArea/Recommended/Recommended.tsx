@@ -1,10 +1,12 @@
 import "./Recommended.css";
+import {SyntheticEvent} from "react";
 
 function Recommended(): JSX.Element {
 
     const item = "Red Wine"; //Demo for getting it from api
 
-    function showRecommendation():void{
+    function showRecommendation(args: SyntheticEvent):void{
+        console.log(args);
         alert(item);
     }
 
