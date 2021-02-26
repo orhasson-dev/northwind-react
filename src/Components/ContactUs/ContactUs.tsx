@@ -12,6 +12,7 @@ function ContactUs(): JSX.Element {
 
     return (
         <div className="ContactUs Box">
+
 		    <Typography className={classes.headline}> Contact Us</Typography>
 
             <TextField label="Name" variant="outlined" className={classes.textBox} />
