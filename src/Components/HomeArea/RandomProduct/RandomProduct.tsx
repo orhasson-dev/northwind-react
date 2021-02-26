@@ -7,18 +7,23 @@ interface RandomProductState {
 }
 
 class RandomProduct extends Component<{}, RandomProductState> {
+
+
+    // Constructor - Object has been created
     public constructor(props: {}) {
         super(props);
         this.state = { products:["shirt","food","drink","iPhone12","Note20"], randomProduct: ""}; // Init the state.
-        this.makeTimer();
+
     }
 
-    private makeTimer = () =>{
+    // componentDidMount - Object is ready for use:
+    public componentDidMount(): void {
         setInterval(() => {
             const rand = Math.floor(Math.random() * this.state.products.length);
             this.setState({randomProduct: this.state.products[rand]})
         }, 1000)
     }
+
 
     public render(): JSX.Element {
         return (

@@ -6,6 +6,7 @@ import Sales from "../Sales/Sales";
 import Recommended from "../Recommended/Recommended";
 import Location from "../Location/Location";
 import Bestseller from "../Bestseller/Bestseller";
+import RandomProduct from "../RandomProduct/RandomProduct";
 
 
 function Home(): JSX.Element {
@@ -27,12 +28,11 @@ function Home(): JSX.Element {
 
             {/* Events: */}
            <Recommended/>
-
            <Location/>
+
+           {/*State Class Component*/ }
            <Bestseller/>
-
-
-            {/*<RandomProduct/>*/}
+           <RandomProduct/>
 
         </div>
     );
