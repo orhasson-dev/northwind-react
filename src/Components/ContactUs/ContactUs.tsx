@@ -1,6 +1,16 @@
 import "./ContactUs.css";
-import {Button, ButtonGroup, Checkbox, FormControlLabel, makeStyles, TextField, Typography} from "@material-ui/core";
+import {
+    Button,
+    ButtonGroup,
+    Checkbox,
+    createMuiTheme,
+    FormControlLabel,
+    makeStyles,
+    TextField,
+    Typography,ThemeProvider
+} from "@material-ui/core";
 import {MailOutline,Send,Cancel} from "@material-ui/icons";
+import {red, deepPurple} from "@material-ui/core/colors";
 
 function ContactUs(): JSX.Element {
 
@@ -11,7 +21,18 @@ function ContactUs(): JSX.Element {
 
     const classes = createClasses();
 
+    const theme = createMuiTheme({
+        typography:{
+            fontFamily: "Arial"
+        },
+       palette:{
+           primary: {main: red[600]},
+           secondary: {main: deepPurple[600]}
+       }
+    });
+
     return (
+        <ThemeProvider theme={theme}>
         <div className="ContactUs Box">
 
 		    <Typography className={classes.headline}> <MailOutline/> Contact Us</Typography>
@@ -33,6 +54,7 @@ function ContactUs(): JSX.Element {
             <Button color="secondary" startIcon={<Cancel/>}>Cancel</Button>
             </ButtonGroup>
         </div>
+        </ThemeProvider>
     );
 }
 
