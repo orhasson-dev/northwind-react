@@ -6,3 +6,7 @@
     background-color: green;
     color: white;
 }
+
+.Hours > p {
+    font-size: smaller;
+}
