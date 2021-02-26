@@ -9,6 +9,7 @@ import Bestseller from "../Bestseller/Bestseller";
 import RandomProduct from "../RandomProduct/RandomProduct";
 import Search from "../Search/Search";
 import Address from "../Address/Address";
+import Hours from "../Hours/Hours";
 
 
 function Home(): JSX.Element {
@@ -34,13 +35,16 @@ function Home(): JSX.Element {
 
            {/*State Class Component*/ }
            <Bestseller/>
-           <RandomProduct/>
+           {/*<RandomProduct/>*/}
 
            {/*Two-Way Binding: */}
            <Search/>
 
            {/*Dynamic Styling:*/}
            <Address/>
+
+           {/*CSS Modules: */}
+           <Hours/>
 
         </div>
     );
