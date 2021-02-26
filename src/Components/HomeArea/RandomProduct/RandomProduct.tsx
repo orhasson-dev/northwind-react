@@ -15,12 +15,10 @@ class RandomProduct extends Component<{}, RandomProductState> {
 
     private makeTimer = () =>{
         setInterval(() => {
-            let rand = Math.floor(Math.random() * this.state.products.length);
+            const rand = Math.floor(Math.random() * this.state.products.length);
             this.setState({randomProduct: this.state.products[rand]})
         }, 1000)
     }
-
-
 
     public render(): JSX.Element {
         return (
