@@ -1,15 +1,16 @@
 import {Component, SyntheticEvent} from "react";
-import "./Search.css";
+import styles from "./Search.module.css"
 
 interface SearchState {
     textToSearch: string;
+    toggle: boolean;
 }
 
 class Search extends Component<{}, SearchState> {
 
     public constructor(props: {}) {
         super(props);
-        this.state = { textToSearch: ""};
+        this.state = { textToSearch: "",toggle: true};
     }
 
     private textChanged = (args: SyntheticEvent) =>{
@@ -18,15 +19,30 @@ class Search extends Component<{}, SearchState> {
     }
 
     private clear = () =>{
+        if(this.state.toggle){
+            this.setState({toggle: false});
+        }
+        else{
+            this.setState({toggle: true});
+        }
         this.setState({textToSearch: ""});
+    }
+
+    private dynamicStylingTrue = {
+        backgroundColor: 'red'
+    }
+
+    private dynamicStylingFalse = {
+        backgroundColor: 'black'
     }
 
     public render(): JSX.Element {
         return (
-            <div className="Search Box">
-				<input type="text" onChange={this.textChanged} value={this.state.textToSearch}  />
-				<span> Searching for: {this.state.textToSearch}</span>
-                <button onClick={this.clear}>Clear</button>
+            <div className={styles.Search + " Box"} style={this.state.toggle? this.dynamicStylingTrue
+                : this.dynamicStylingFalse}>
+				<input className={styles.InputStyle} type="text" onChange={this.textChanged} value={this.state.textToSearch}  />
+				<span className={styles.SpanStyle}> Searching for: {this.state.textToSearch}</span>
+                <button className={styles.ButtonStyle} onClick={this.clear}>Clear</button>
             </div>
         );
     }
