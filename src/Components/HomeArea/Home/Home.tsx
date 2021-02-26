@@ -8,6 +8,7 @@ import Location from "../Location/Location";
 import Bestseller from "../Bestseller/Bestseller";
 import RandomProduct from "../RandomProduct/RandomProduct";
 import Search from "../Search/Search";
+import Address from "../Address/Address";
 
 
 function Home(): JSX.Element {
@@ -37,6 +38,9 @@ function Home(): JSX.Element {
 
            {/*Two-Way Binding: */}
            <Search/>
+
+           {/*Dynamic Styling:*/}
+           <Address/>
 
         </div>
     );
