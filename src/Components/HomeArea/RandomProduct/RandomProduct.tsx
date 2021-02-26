@@ -20,13 +20,15 @@ class RandomProduct extends Component<{}, RandomProductState> {
 
     // componentDidMount - Object is ready for use:
     public componentDidMount(): void {
+
         this.timerId = window.setInterval(() => {
             const index = Math.floor(Math.random() * this.state.products.length);
             this.setState({ randomProduct: this.state.products[index] });
         }, 1000);
+
+
+        console.log(this.timerId);
     }
-
-
 
     public render(): JSX.Element {
         return (

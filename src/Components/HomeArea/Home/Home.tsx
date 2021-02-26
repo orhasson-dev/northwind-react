@@ -7,6 +7,7 @@ import Recommended from "../Recommended/Recommended";
 import Location from "../Location/Location";
 import Bestseller from "../Bestseller/Bestseller";
 import RandomProduct from "../RandomProduct/RandomProduct";
+import Search from "../Search/Search";
 
 
 function Home(): JSX.Element {
@@ -33,6 +34,9 @@ function Home(): JSX.Element {
            {/*State Class Component*/ }
            <Bestseller/>
            <RandomProduct/>
+
+           {/*Two-Way Binding: */}
+           <Search/>
 
         </div>
     );
