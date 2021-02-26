@@ -1,5 +1,6 @@
 import "./ContactUs.css";
 import {Button, ButtonGroup, Checkbox, FormControlLabel, makeStyles, TextField, Typography} from "@material-ui/core";
+import {MailOutline,Send,Cancel} from "@material-ui/icons";
 
 function ContactUs(): JSX.Element {
 
@@ -13,7 +14,7 @@ function ContactUs(): JSX.Element {
     return (
         <div className="ContactUs Box">
 
-		    <Typography className={classes.headline}> Contact Us</Typography>
+		    <Typography className={classes.headline}> <MailOutline/> Contact Us</Typography>
 
             <TextField label="Name" variant="outlined" className={classes.textBox} />
             <br />
@@ -28,8 +29,8 @@ function ContactUs(): JSX.Element {
             <br/>
 
             <ButtonGroup variant="contained" fullWidth>
-            <Button color="primary">Send</Button>
-            <Button color="secondary">Cancel</Button>
+            <Button color="primary" startIcon={<Send/>}>Send</Button>
+            <Button color="secondary" startIcon={<Cancel/>}>Cancel</Button>
             </ButtonGroup>
         </div>
     );
