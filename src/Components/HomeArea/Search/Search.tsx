@@ -1,48 +1,52 @@
-import {Component, SyntheticEvent} from "react";
-import styles from "./Search.module.css"
+import { Component, SyntheticEvent } from "react";
+import css from "./Search.module.css";
 
 interface SearchState {
     textToSearch: string;
-    toggle: boolean;
+    backColor: string;
 }
 
 class Search extends Component<{}, SearchState> {
 
     public constructor(props: {}) {
         super(props);
-        this.state = { textToSearch: "",toggle: true};
+        this.state = { textToSearch: "", backColor: "cyan" };
     }
 
-    private textChanged = (args: SyntheticEvent) =>{
+    private textChanged = (args: SyntheticEvent) => {
         const value = (args.target as HTMLInputElement).value;
-        this.setState({textToSearch: value});
+        this.setState({ textToSearch: value });
+        this.dynamicSpanBackColor = { backgroundColor: value };
     }
 
-    private clear = () =>{
-        if(this.state.toggle){
-            this.setState({toggle: false});
+    private clear = () => {
+        this.setState({ textToSearch: "" });
+        if (this.state.backColor === "cyan") {
+            this.setState({ backColor: "pink" });
         }
-        else{
-            this.setState({toggle: true});
+        else {
+            this.setState({ backColor: "cyan" });
         }
-        this.setState({textToSearch: ""});
+        this.dynamicStyling = { backgroundColor: this.state.backColor };
     }
 
-    private dynamicStylingTrue = {
-        backgroundColor: 'red'
-    }
-
-    private dynamicStylingFalse = {
-        backgroundColor: 'black'
-    }
+    private dynamicStyling = { backgroundColor: "" };
+    private dynamicSpanBackColor = { backgroundColor: "" };
 
     public render(): JSX.Element {
         return (
-            <div className={styles.Search + " Box"} style={this.state.toggle? this.dynamicStylingTrue
-                : this.dynamicStylingFalse}>
-				<input className={styles.InputStyle} type="text" onChange={this.textChanged} value={this.state.textToSearch}  />
-				<span className={styles.SpanStyle}> Searching for: {this.state.textToSearch}</span>
-                <button className={styles.ButtonStyle} onClick={this.clear}>Clear</button>
+            <div className={css.Search + " Box"} style={this.dynamicStyling}>
+
+                <input className={css.TextBox} type="text" onChange={this.textChanged} value={this.state.textToSearch} />
+
+                <span className={css.SpanText} style={this.dynamicSpanBackColor}>
+                    Searching for: {this.state.textToSearch}
+                </span>
+
+                <button className={css.Button} onClick={this.clear}>
+                    Clear
+                </button>
+
             </div>
         );
     }

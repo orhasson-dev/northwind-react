@@ -1,3 +1,4 @@
+
 import { Component } from "react";
 import "./Clock.css";
 
@@ -8,6 +9,7 @@ interface ClockState {
 class Clock extends Component<{}, ClockState> {
 
     private timerID = 0;
+    private dynamicStyling = { backgroundColor: this.getRandomColor()};
 
     public constructor(props: {}) {
         super(props);
@@ -25,7 +27,7 @@ class Clock extends Component<{}, ClockState> {
 
     public render(): JSX.Element {
         return (
-            <div className="Clock Box">
+            <div className="Clock Box" style={this.dynamicStyling}>
 				<p>{this.state.time}</p>
             </div>
         );
@@ -33,6 +35,12 @@ class Clock extends Component<{}, ClockState> {
 
     public componentWillUnmount():void {
         window.clearInterval(this.timerID); // Stop the timer.
+    }
+
+    private getRandomColor(): string{
+        const colors = ["red","green","blue","yellow","magenta","cyan","white","gray"];
+        const index = Math.floor(Math.random()* colors.length);
+        return colors[index];
     }
 }
 
