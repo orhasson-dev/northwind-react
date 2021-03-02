@@ -3,8 +3,7 @@ import Home from "../../HomeArea/Home/Home";
 import About from "../../AboutArea/About/About";
 import ProductList from "../../ProductArea/ProductList/ProductList";
 import NotFound from "../../SharedArea/NotFound/NotFound";
-import Loadable from "react-loadable";
-import React, {Fragment} from "react";
+import Loading from "react-loadable";
 import ProgressBar from "../../SharedArea/ProgressBar/ProgressBar";
 
 function Routing(): JSX.Element {
@@ -15,8 +14,8 @@ function Routing(): JSX.Element {
             <Route path="/about" component={About} exact/>
             {/*<Route path="/contact-us" component={ContactUs} exact/>*/}
             {/*Lazy Loading Example - for contact-us page*/}
-            <Route path="/contact-us" component={Loadable({loader:() => import("../../ContactUs/ContactUs"),
-            loading:ProgressBar})}/>
+            <Route path="/contact-us" component={Loading({loader:() => import("../../ContactUs/ContactUs"),
+            loading:ProgressBar,})}/>
             <Redirect from="/" to="/home" exact/>
             <Route component={NotFound} />
         </Switch>

@@ -11,6 +11,7 @@ import Search from "../Search/Search";
 import Address from "../Address/Address";
 import Hours from "../Hours/Hours";
 import Clock from "../Clock/Clock";
+import HugeSeller from "../HugeSeller/HugeSeller";
 
 
 function Home(): JSX.Element {
@@ -48,6 +49,7 @@ function Home(): JSX.Element {
            <Hours/>
 
            <Clock/>
+           <HugeSeller/>
 
         </div>
     );
