@@ -8,7 +8,7 @@ function Routing(): JSX.Element {
     return (
 
         <Switch>
-            <Route path="/home" component={Home} exact/>
+            <Route path="/" component={Home} exact/>
             <Route path="/products" component={ProductList} exact/>
             <Route path="/about" component={About} exact/>
             <Route path="/contact-us" component={ContactUs} exact/>
