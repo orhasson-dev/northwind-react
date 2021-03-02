@@ -10,6 +10,7 @@ import RandomProduct from "../RandomProduct/RandomProduct";
 import Search from "../Search/Search";
 import Address from "../Address/Address";
 import Hours from "../Hours/Hours";
+import Clock from "../Clock/Clock";
 
 
 function Home(): JSX.Element {
@@ -45,6 +46,8 @@ function Home(): JSX.Element {
 
            {/*CSS Modules: */}
            <Hours/>
+
+           <Clock/>
 
         </div>
     );

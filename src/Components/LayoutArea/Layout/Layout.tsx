@@ -11,8 +11,8 @@ function Layout(): JSX.Element { // JSX.Element = UI object
             <header><Header/></header>
             <aside><Menu/></aside>
             <main>
-                {/*<Home/>*/}
-                <ContactUs/>
+                <Home/>
+                {/*<ContactUs/>*/}
             </main>
             <footer><Footer/></footer>
         </div>
