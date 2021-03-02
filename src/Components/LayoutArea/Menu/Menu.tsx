@@ -1,14 +1,14 @@
 import "./Menu.css";
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 
 function Menu(): JSX.Element {
     return (
         <div className="Menu">
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/products">Products</Link>
-                <Link to="/about">About</Link>
-                <Link to="/contact-us">Contact Us</Link>
+                <NavLink to="/" exact>Home</NavLink>
+                <NavLink to="/products" exact>Products</NavLink>
+                <NavLink to="/about" exact>About</NavLink>
+                <NavLink to="/contact-us" exact>Contact Us</NavLink>
             </nav>
         </div>
     );
