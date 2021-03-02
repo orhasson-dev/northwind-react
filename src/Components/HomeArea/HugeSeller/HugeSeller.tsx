@@ -3,8 +3,9 @@ import {useState} from "react";
 
 function HugeSeller(): JSX.Element {
 
-    const [item,setItem] = useState("");
-    const [price,setPrice] = useState(0);
+    //destructuring assignment (from ES6)
+    const [item,setItem] = useState<string>("");
+    const [price,setPrice] = useState<number>(0);
 
     function showHugeSeller():void{
         // When we cool to setItem - React will render again this component (HugeSeller)
