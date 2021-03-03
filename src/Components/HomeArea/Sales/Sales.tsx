@@ -29,6 +29,8 @@ class Sales extends Component<SalesProps>{
 }
 
 
+
+
 //Functional Components Props Use:
 // function Sales(props: SalesProps): JSX.Element {
 //     return (
