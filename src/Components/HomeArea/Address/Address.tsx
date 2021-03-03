@@ -10,7 +10,7 @@ function Address(): JSX.Element {
 
     return (
         <div className="Address Box">
-			<p  style={dynamicStyling}>Our Address: HaMasger 34, Tel Aviv</p>
+			<p  style={dynamicStyling}>Our Address: Avital 34, Tel Aviv</p>
         </div>
     );
 }
