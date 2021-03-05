@@ -1,8 +1,9 @@
 import { Component } from "react";
 import "./ProductList.css";
+import ProductModel from "../../../Models/ProductModel";
 
 interface ProductListState {
-	
+	products: ProductModel[];
 }
 
 class ProductList extends Component<{}, ProductListState> {
