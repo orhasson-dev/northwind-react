@@ -3,6 +3,7 @@ import "./ProductList.css";
 import ProductModel from "../../../Models/ProductModel";
 import axios from "axios";
 import globals from "../../../Services/Globals";
+import ProductCard from "../../ProdictArea/ProductCard/ProductCard";
 
 interface ProductListState {
     products: ProductModel[];
@@ -33,15 +34,7 @@ class ProductList extends Component<{}, ProductListState> {
     public render(): JSX.Element {
         return (
             <div className="ProductList">
-                {this.state.products.map((item) =>
-                    <Fragment key={item.id}>
-                        <span>{item.name} | </span>
-                        <span>{item.price} | </span>
-                        <span>{item.stock} | </span>
-                        <span>{item.imageName} </span>
-                        <br/>
-                    </Fragment>
-                )}
+                {this.state.products.map((item) => <ProductCard product={item} key={item.id}/>)}
             </div>
         )
     }
