@@ -28,14 +28,14 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
     public constructor(props: ProductDetailsProps) {
         super(props);
         this.state = {
-			product: new ProductModel()
+			product: null
         };
     }
 
     public async componentDidMount() {
         try {
             const response = await axios.get<ProductModel>(
-                globals.productUrl  + this.props.match.params.id );
+                globals.productUrlDelayed  + this.props.match.params.id );
             this.setState({product: response.data});
         } catch (err) {
             console.log(err);
