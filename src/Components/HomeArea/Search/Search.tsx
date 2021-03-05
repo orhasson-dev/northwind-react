@@ -37,13 +37,13 @@ class Search extends Component<{}, SearchState> {
         return (
             <div className={css.Search + " Box"} style={this.dynamicStyling}>
 
-                <input className={css.TextBox} type="text" onChange={this.textChanged} value={this.state.textToSearch} />
+                <input className={css.InputStyle} type="text" onChange={this.textChanged} value={this.state.textToSearch} />
 
-                <span className={css.SpanText} style={this.dynamicSpanBackColor}>
+                <span className={css.SpanStyle} style={this.dynamicSpanBackColor}>
                     Searching for: {this.state.textToSearch}
                 </span>
 
-                <button className={css.Button} onClick={this.clear}>
+                <button className={css.ButtonStyle} onClick={this.clear}>
                     Clear
                 </button>
 
