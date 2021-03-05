@@ -1,6 +1,8 @@
 import "./ProductCard.css";
+import {NavLink } from "react-router-dom";
 import ProductModel from "../../../Models/ProductModel";
 import globals from "../../../Services/Globals";
+import ProductDetails from "../ProductDetails/ProductDetails";
 
 interface ProductCardProps {
     product: ProductModel;
@@ -8,7 +10,7 @@ interface ProductCardProps {
 
 function ProductCard(props: ProductCardProps): JSX.Element {
     return (
-        <div className="ProductCard Box">
+        <div className="ProductCard Box" >
             <div>
                 {props.product.name}
                 <br/>
@@ -16,7 +18,9 @@ function ProductCard(props: ProductCardProps): JSX.Element {
                 <br/>
                 Stock: {props.product.stock}
             </div>
-          <img src={globals.productUrl + "images/" + props.product.imageName} />
+            <NavLink to={"/products/details/" + props.product.id}>
+          <img src={globals.productUrl + "images/" + props.product.imageName}  alt="view"/>
+            </NavLink>
         </div>
     );
 }
