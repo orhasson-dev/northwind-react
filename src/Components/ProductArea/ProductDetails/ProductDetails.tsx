@@ -45,10 +45,17 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
     public render(): JSX.Element {
         return (
             <div className="ProductDetails">
+                <h2>Product Details</h2>
+
+                {/*Add the loading component untill product downloaded from server*/}
+                {this.state.product &&
+                    <>
                 <h3>{this.state.product.name}</h3>
-                <h3>Price: ${this.state.product.price}</h3>
-                <h3>Stock: {this.state.product.stock}</h3>
-                <img src={globals.productUrl + "images/" + this.state.product.imageName} alt="View"/>
+                    <h3>Price: ${this.state.product.price}</h3>
+                    <h3>Stock: {this.state.product.stock}</h3>
+                    <img src={globals.productUrl + "images/" + this.state.product.imageName} alt="View"/>
+                    </>
+                }
                 <br/><br/>
                 <NavLink to="/products" > Back </NavLink>
             </div>
