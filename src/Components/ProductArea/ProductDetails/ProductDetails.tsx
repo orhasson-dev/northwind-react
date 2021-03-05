@@ -6,6 +6,7 @@ import { RouteComponentProps } from "react-router-dom";
 import axios from "axios";
 import globals from "../../../Services/Globals";
 import ProductCard from "../ProductCard/ProductCard";
+import ProgressBar from "../../SharedArea/ProgressBar/ProgressBar";
 
 // interface containing the route parameters
 // The exact route params in the Routing must be here as string variables:
@@ -46,8 +47,9 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
         return (
             <div className="ProductDetails">
                 <h2>Product Details</h2>
+                { this.state.product !== null || <ProgressBar /> }
 
-                {/*Add the loading component untill product downloaded from server*/}
+                {/*Add the loading component until product downloaded from server*/}
                 {this.state.product &&
                     <>
                 <h3>{this.state.product.name}</h3>
