@@ -14,7 +14,7 @@ function AddProduct(): JSX.Element {
     async function addProduct(product: ProductModel){
         // send the product to the server...
         try{
-            const res = await axios.post<ProductModel>(globals.productUrl,ProductModel.convertToFormData(product));
+            const res = await axios.post<ProductModel>(globals.productUrl, convertToFormData(product));
             const addedProduct = res.data; // The added product in the backend
             console.log("Product has been added. ID: " + addedProduct.id);
             history.push("/products"); //Go to that route!
@@ -22,6 +22,17 @@ function AddProduct(): JSX.Element {
         catch(err){
             alert("Error: "+ err);
         }
+    }
+
+    //Using static since useForm create literal object type.
+    function convertToFormData(product: ProductModel): FormData {
+        const myFormData = new FormData();
+        myFormData.append("name",product.name);
+        myFormData.append("price",product.price.toString());
+        myFormData.append("stock",product.stock.toString());
+        myFormData.append("image",product.image.item(0));
+
+        return myFormData;
     }
 
     return (
