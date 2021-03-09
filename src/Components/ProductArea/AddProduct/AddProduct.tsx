@@ -9,7 +9,7 @@ function AddProduct(): JSX.Element {
 
 
     const history = useHistory();
-    const { register, handleSubmit} =  useForm<ProductModel>();
+    const { register, handleSubmit, errors} =  useForm<ProductModel>();
 
     async function addProduct(product: ProductModel){
         // send the product to the server...
@@ -40,20 +40,30 @@ function AddProduct(): JSX.Element {
 			<h2>Add new Product</h2>
             <form onSubmit={handleSubmit(addProduct)}>
                 <label>Name: </label><br/>
-                <input type="text" name="name" autoFocus ref={register} />
+                <input type="text" name="name" autoFocus ref={register({required: true, minLength: 3})} />
+
+                {/*Adding errors with Optional Chaining */}
+                {errors.name?.type === "required" && <><br/> <span>Missing name's value.</span></>}
+                {errors.name?.type === "minLength" && <><br/> <span>Name too short.</span></>}
+
                 <br/><br/>
 
                 <label>Price: </label><br/>
-                <input type="number" name="price" step="0.01" ref={register} />
+                <input type="number" name="price" step="0.01" ref={register({required: true,min:0 })} />
+                {errors.price?.type === "required" && <><br/> <span>Missing price's value.</span></>}
+                {errors.price?.type === "min" && <><br/> <span>Price cannot be Negative</span></>}
                 <br/><br/>
 
                 <label>Stock: </label><br/>
-                <input type="number" name="stock" ref={register}  />
+                <input type="number" name="stock" ref={register({required: true, min:0})} />
+                {errors.stock?.type === "required" && <><br/> <span>Missing stock's value.</span></>}
+                {errors.stock?.type === "min" && <><br/> <span>Stock cannot be Negative</span></>}
                 <br/><br/>
 
                 <label>Image: </label> <br/>
-                <input type="file" name="image"  accept="image/*" ref={register}/>
-
+                <input type="file" name="image"  accept="image/*" ref={register({required: true})}/>
+                {errors.image?.type === "required" && <><br/> <span>Missing Image.</span></>}
+                <br/><br/>
                 <button>Add</button>
             </form>
         </div>
