@@ -1,4 +1,5 @@
 import "./AddProduct.css";
+import { useForm } from "react-hook-form";
 
 function AddProduct(): JSX.Element {
     return (
