@@ -38,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\Components\ProductArea\ProductDetails\ProductDetails.tsx">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\Components\ProductArea\ProductList\ProductList.tsx">
           <value>
             <Attribute>

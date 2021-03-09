@@ -7,6 +7,9 @@ import axios from "axios";
 import globals from "../../../Services/Globals";
 import ProductCard from "../ProductCard/ProductCard";
 import ProgressBar from "../../SharedArea/ProgressBar/ProgressBar";
+import { confirmAlert } from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 
 // interface containing the route parameters
 // The exact route params in the Routing must be here as string variables:
@@ -26,6 +29,9 @@ interface ProductDetailsState {
 
 class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState> {
 
+
+
+
     public constructor(props: ProductDetailsProps) {
         super(props);
         this.state = {
@@ -42,6 +48,43 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
             console.log(err);
         }
     }
+
+    private submitHandler = () => {
+
+        confirmAlert({
+            title: "CAUTION !!!!",
+            message:
+                "Are you absolutely sure you want to delete section ",
+            buttons: [
+                {
+                    label: "Yes",
+                    onClick: () => this.deleteProduct()
+                },
+                {
+                    label: "No",
+                    onClick: () => {}
+                }
+            ]
+        });
+    };
+
+    private deleteProduct = async ()=>{
+
+        try{
+            //create a message Do you really want to delete?
+
+
+            await axios.delete(globals.productUrl + this.state.product.id);
+
+            //Redirect to products page.
+            this.props.history.push("/products");
+
+        }
+        catch(err){
+            console.log(err);
+        }
+        }
+
 
     public render(): JSX.Element {
         return (
@@ -60,6 +103,9 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
                 }
                 <br/><br/>
                 <NavLink to="/products" > Back </NavLink>
+                <span> | </span>
+                <a href="#" onClick={this.submitHandler}>Delete</a>
+
             </div>
         );
     }
