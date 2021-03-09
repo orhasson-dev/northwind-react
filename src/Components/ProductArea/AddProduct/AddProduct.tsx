@@ -12,6 +12,12 @@ function AddProduct(): JSX.Element {
                 <label>Price: </label><br/>
                 <input type="number" name="price" step="0.01" />
                 <br/><br/>
+
+                <label>Stock: </label><br/>
+                <input type="number" name="stock" />
+                <br/><br/>
+
+                <button>Add</button>
             </form>
         </div>
     );
