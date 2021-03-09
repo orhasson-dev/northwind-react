@@ -14,10 +14,9 @@ function AddProduct(): JSX.Element {
     async function addProduct(product: ProductModel){
         // send the product to the server...
         try{
-            const res = await axios.post<ProductModel>(globals.productUrl,product);
+            const res = await axios.post<ProductModel>(globals.productUrl,ProductModel.convertToFormData(product));
             const addedProduct = res.data; // The added product in the backend
             console.log("Product has been added. ID: " + addedProduct.id);
-            //reset();
             history.push("/products"); //Go to that route!
         }
         catch(err){
@@ -38,8 +37,11 @@ function AddProduct(): JSX.Element {
                 <br/><br/>
 
                 <label>Stock: </label><br/>
-                <input type="number" name="stock" ref={register} />
+                <input type="number" name="stock" ref={register}  />
                 <br/><br/>
+
+                <label>Image: </label> <br/>
+                <input type="file" name="image"  accept="image/*" ref={register}/>
 
                 <button>Add</button>
             </form>
