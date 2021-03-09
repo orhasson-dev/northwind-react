@@ -4,6 +4,8 @@ import ProductModel from "../../../Models/ProductModel";
 import axios from "axios";
 import globals from "../../../Services/Globals";
 import ProductCard from "../ProductCard/ProductCard";
+import {Add} from "@material-ui/icons";
+import {NavLink} from "react-router-dom"
 
 interface ProductListState {
     products: ProductModel[];
@@ -33,6 +35,9 @@ class ProductList extends Component<{}, ProductListState> {
     public render(): JSX.Element {
         return (
             <div className="ProductList">
+                <NavLink className="NewProduct" to="/products/new" exact >
+                <Add/>
+                </NavLink>
                 {this.state.products.map((item) => <ProductCard product={item} key={item.id}/>)}
             </div>
         )

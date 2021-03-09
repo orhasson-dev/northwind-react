@@ -47,7 +47,7 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
         return (
             <div className="ProductDetails">
                 <h2>Product Details</h2>
-                { this.state.product !== null || <ProgressBar /> }
+                { this.state.product === null && <ProgressBar /> }
 
                 {/*Add the loading component until product downloaded from server*/}
                 {this.state.product &&

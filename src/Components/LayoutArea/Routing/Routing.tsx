@@ -6,6 +6,7 @@ import NotFound from "../../SharedArea/NotFound/NotFound";
 import Loadable from "react-loadable";
 import ProgressBar from "../../SharedArea/ProgressBar/ProgressBar";
 import ProductDetails from "../../ProductArea/ProductDetails/ProductDetails";
+import AddProduct from "../../ProductArea/AddProduct/AddProduct";
 
 function Routing(): JSX.Element {
     return (
@@ -13,6 +14,7 @@ function Routing(): JSX.Element {
             <Route path="/home" component={Home} exact/>
             <Route path="/products" component={ProductList} exact/>
             <Route path="/products/details/:id" component={ProductDetails} exact/>
+            <Route path="/products/new" component={AddProduct} exact />
             <Route path="/about" component={About} exact/>
             {/*<Route path="/contact-us" component={ContactUs} exact/>*/}
             {/*Lazy Loading Example - for contact-us page*/}

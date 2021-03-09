@@ -4,3 +4,9 @@
     overflow: auto;
 
 }
+
+.NewProduct {
+    position: absolute;
+    right: 30px;
+    top:135px;
+}
