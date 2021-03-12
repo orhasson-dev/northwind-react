@@ -18,8 +18,8 @@ function AddProduct(): JSX.Element {
         try{
             const res = await axios.post<ProductModel>(globals.productUrl, convertToFormData(product));
             const addedProduct = res.data; // The added product in the backend
-            console.log("Product has been added. ID: " + addedProduct.id);
             store.dispatch(productsAddedAction(addedProduct));
+            console.log("Product has been added. ID: " + addedProduct.id);
             history.push("/products"); //Go to that route!
         }
         catch(err){

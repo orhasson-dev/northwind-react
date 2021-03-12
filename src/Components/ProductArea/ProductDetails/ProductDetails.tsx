@@ -9,7 +9,8 @@ import ProductCard from "../ProductCard/ProductCard";
 import ProgressBar from "../../SharedArea/ProgressBar/ProgressBar";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import store from "../../../Redux/Store"; // Import css
+import store from "../../../Redux/Store";
+import {productsDeletedAction} from "../../../Redux/ProductsState"; // Import css
 
 
 // interface containing the route parameters
@@ -50,6 +51,7 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
             const response = await axios.get<ProductModel>(
                 globals.productUrlDelayed + this.props.match.params.id);
             this.setState({product: response.data});
+
         }
         } catch (err) {
             console.log(err);
@@ -82,7 +84,7 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
         try {
             //create a message Do you really want to delete?
             await axios.delete(globals.productUrl + this.state.product.id);
-
+            store.dispatch(productsDeletedAction(this.state.product.id));
             //Redirect to products page.
             this.props.history.push("/products");
 
@@ -104,7 +106,7 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
                     <h3>{this.state.product.name}</h3>
                     <h3>Price: ${this.state.product.price}</h3>
                     <h3>Stock: {this.state.product.stock}</h3>
-                    <img src={globals.productUrl + "images/" + this.state.product.imageName} alt="View"/>
+                    <img src={globals.productUrl + "images/" + this.state.product.imageName} alt="View" width={200} height={200}/>
                 </>
                 }
                 <br/><br/>
