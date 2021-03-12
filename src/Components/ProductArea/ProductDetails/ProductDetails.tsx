@@ -8,7 +8,8 @@ import globals from "../../../Services/Globals";
 import ProductCard from "../ProductCard/ProductCard";
 import ProgressBar from "../../SharedArea/ProgressBar/ProgressBar";
 import {confirmAlert} from "react-confirm-alert";
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import store from "../../../Redux/Store"; // Import css
 
 
 // interface containing the route parameters
@@ -39,9 +40,17 @@ class ProductDetails extends Component<ProductDetailsProps, ProductDetailsState>
 
     public async componentDidMount() {
         try {
+            const id =  +this.props.match.params.id;
+            const product = store.getState().productsState.products.find(p => p.id === id);
+        if(product){
+            //Value Shorthand JS (ES6)
+            this.setState({ product });
+        }
+        else {
             const response = await axios.get<ProductModel>(
                 globals.productUrlDelayed + this.props.match.params.id);
             this.setState({product: response.data});
+        }
         } catch (err) {
             console.log(err);
         }

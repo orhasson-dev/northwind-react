@@ -4,6 +4,8 @@ import ProductModel from "../../../Models/ProductModel";
 import axios from "axios";
 import globals from "../../../Services/Globals";
 import { useHistory } from "react-router-dom";
+import store from "../../../Redux/Store";
+import {productsAddedAction} from "../../../Redux/ProductsState";
 
 function AddProduct(): JSX.Element {
 
@@ -17,6 +19,7 @@ function AddProduct(): JSX.Element {
             const res = await axios.post<ProductModel>(globals.productUrl, convertToFormData(product));
             const addedProduct = res.data; // The added product in the backend
             console.log("Product has been added. ID: " + addedProduct.id);
+            store.dispatch(productsAddedAction(addedProduct));
             history.push("/products"); //Go to that route!
         }
         catch(err){
