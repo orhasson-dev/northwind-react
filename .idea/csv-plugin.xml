@@ -52,7 +52,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\Redux\CatsState.ts">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\Redux\ProductsState.ts">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\Redux\Store.ts">
           <value>
             <Attribute>
               <option name="separator" value=":" />
