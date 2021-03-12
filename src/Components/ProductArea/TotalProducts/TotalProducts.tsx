@@ -1,12 +1,15 @@
 import { Component } from "react";
 import "./TotalProducts.css";
 import store from "../../../Redux/Store";
+import {Unsubscribe} from "redux";
 
 interface TotalProductsState {
 	totalProducts: number;
 }
 
 class TotalProducts extends Component<{}, TotalProductsState> {
+
+    private unsubscribeMe: Unsubscribe;
 
     public constructor(props: {}) {
         super(props);
@@ -16,9 +19,13 @@ class TotalProducts extends Component<{}, TotalProductsState> {
     }
 
     public componentDidMount(): void {
-        store.subscribe(() =>{
+        this.unsubscribeMe = store.subscribe(() =>{
             this.setState({totalProducts: store.getState().productsState.products.length})
         });
+    }
+
+    public componentWillUnmount() {
+        this.unsubscribeMe(); // Stop listening when the Component destroy.
     }
 
     public render(): JSX.Element {
