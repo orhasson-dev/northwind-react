@@ -1,6 +1,7 @@
 import {combineReducers, createStore} from "redux"
 import {productsReducer} from "./ProductsState";
 import {catsReducer} from "./CatsState";
+import {composeWithDevTools} from "redux-devtools-extension";
 
 // Single Reducer:
 // const store = createStore(productsReducer);
@@ -16,7 +17,7 @@ import {catsReducer} from "./CatsState";
 
 //Multiple Reducers:
 const reducers = combineReducers({productsState: productsReducer, catsState: catsReducer});
-const store = createStore(reducers);
+const store = createStore(reducers, composeWithDevTools());
 
 export default store;
 
